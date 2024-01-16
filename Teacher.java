@@ -1,34 +1,21 @@
-public class Teacher {
-
-    private String firstName;
-    private String secondName;
-    private String lasttName;
-    public Teacher(String firstName, String secondName, String lasttName) {
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.lasttName = lasttName;
-    }
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    public String getSecondName() {
-        return secondName;
-    }
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-    public String getLasttName() {
-        return lasttName;
-    }
-    public void setLasttName(String lasttName) {
-        this.lasttName = lasttName;
-    }
-    @Override
-    public String toString() {
-        return "Teacher [firstName=" + firstName + ", secondName=" + secondName + ", lasttName=" + lasttName + "]";
-    }
+public class Teacher extends User implements Comparable<Teacher> {
+    int teacherId;
+    public Teacher(int teacherId, String firstName, String secondName, String lastName) {
+        super(firstName, secondName, lastName);
+        this.teacherId = teacherId;}
+        @Override
+        public String toString() {
+            return "Teacher{" +
+                    "teacherId=" + teacherId +
+                    ", firstName='" + super.getFirstName() + '\'' +
+                    ", secondName='" + super.getSecondName() + '\'' +
+                    ", lastName='" + super.getLasttName() + '\'' +
+                    '}';
+        }
+        public int compareTo(Teacher o) {
+            if(teacherId > o.teacherId) return 1;
+            if(teacherId < o.teacherId) return -1;
+            return 0;
+        }
 }
         
